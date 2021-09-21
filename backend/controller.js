@@ -91,7 +91,7 @@ export const getTokenBalance = async (req, res) => {
     try {
         const contractAddress = '0x40C5aa5a1C8b71810BD297D284EB5B5e28E33046';
         const contract = new web3.eth.Contract(abi, contractAddress);
-        consol.log(contract)
+        console.log(contract)
         const balance = await contract.methods.balanceOf(req.body.address).call();
         const decimals = await contract.methods.decimals().call();
         res.status(200).send({ status: true, balance: balance / 10 ** decimals });

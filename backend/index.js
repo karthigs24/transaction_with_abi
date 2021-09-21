@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import { createAccount, getBalance, getTokenBalance, transfer, transferToken } from './controller';
+import { createAccount, getBalance, getTokenBalance, transfer, transferToken } from './controller.js';
 
 const app = express();
 const env = dotenv.config().parsed;
@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
     res.send('API works...')
 });
 app.post('/account', createAccount);
-app.get('/balance', getBalance);
-app.get('/token-balance', getTokenBalance);
+app.post('/balance', getBalance);
+app.post('/token-balance', getTokenBalance);
 app.post('/transfer', transfer);
 app.post('/transfer_token', transferToken)
 
